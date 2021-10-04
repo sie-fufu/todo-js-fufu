@@ -1,25 +1,31 @@
 import "./styles.css";
 
 const onClickAdd = () => {
-  const inputText = document.getElementById("add-text");
+  //テキストボックスの値を取得し、初期化する
+  const inputText = document.getElementById("add-text").value;
   document.getElementById("add-text").value = "";
 
+  //liタグ生成
+  const li = document.createElement("li");
+
+  //divを生成
   const div = document.createElement("div");
   div.className = "list-row";
-
-  const li = document.createElement("li");
-  console.log(li);
 
   const p = document.createElement("p");
   p.className = "todo";
   p.innerText = inputText;
+  console.log(p);
 
   const button = document.createElement("button");
-  button.innerText = "戻す";
+  button.innerText = "完了";
 
+  li.appendChild(div);
   div.appendChild(p);
   div.appendChild(button);
-  li.appendChild(div);
+
+  //未完了リストに追加
+  document.getElementById("incomplete-list").appendChild(li);
 };
 
 document.getElementById("add-button").addEventListener("click", onClickAdd);
