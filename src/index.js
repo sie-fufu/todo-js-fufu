@@ -24,22 +24,33 @@ const onClickAdd = () => {
     deleteFromIncompleteList(div.parentNode);
 
     //完了リストに追加する要素
-    const addTarget = completeButton.parentNode;
-
-    //TODO内容テキストを取得
-    const text = addTarget.firstElementChild.innerText;
+    const addTarget = div.parentNode;
 
     //divタグ以下を初期化
     addTarget.textContent = null;
+
+    div.textContent = null;
     //pタグ作成
-    const p = document.createElement("p");
-    p.innerText = text;
+    const param = document.createElement("p");
+    //TODO内容テキストを取得
+    const text = p.textContent;
+    param.innerText = text;
     //button（戻す）タブの生成
     const backButton = document.createElement("button");
     backButton.innerText = "戻す";
-    //liタグの子要素に各要素を設定
-    addTarget.appendChild(p);
-    addTarget.appendChild(backButton);
+    backButton.addEventListener("click", () => {
+      //押された戻すボタンの親タグ（div）を完了リストから削除
+      const deleteTarget = div.parentNode;
+      document.getElementById("complete-list").removeChild(deleteTarget);
+    });
+
+    //divタグの子要素に各要素を設定
+    div.appendChild(p);
+    div.appendChild(backButton);
+
+    addTarget.appendChild(div);
+
+    console.log(addTarget);
 
     //完了リストに追加
     document.getElementById("complete-list").appendChild(addTarget);
