@@ -31,11 +31,18 @@ const onClickAdd = () => {
 
     //divタグ以下を初期化
     addTarget.textContent = null;
-    //liタグ作成
+    //pタグ作成
     const p = document.createElement("p");
     p.innerText = text;
     //button（戻す）タブの生成
-    const backButton = document.createElementt("button")
+    const backButton = document.createElement("button");
+    backButton.innerText = "戻す";
+    //liタグの子要素に各要素を設定
+    addTarget.appendChild(p);
+    addTarget.appendChild(backButton);
+
+    //完了リストに追加
+    document.getElementById("complete-list").appendChild(addTarget);
   });
 
   //button(削除)タグ生成
