@@ -28,7 +28,7 @@ const createIncompleteList = (text) => {
   //button(完了)タグ生成
   const completeButton = document.createElement("button");
   completeButton.innerText = "完了";
-  completeButton.addEventListener("click", e => {
+  completeButton.addEventListener("click", ()  => {
     //完了リストに追加する要素
     const addTarget = div.parentNode;
     //divタグ以下を初期化
