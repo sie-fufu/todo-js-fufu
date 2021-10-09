@@ -28,23 +28,14 @@ const createIncompleteList = (text) => {
   //button(完了)タグ生成
   const completeButton = document.createElement("button");
   completeButton.innerText = "完了";
-  completeButton.addEventListener("click", () => {
+  completeButton.addEventListener("click", ()  => {
     //完了リストに追加する要素
     const addTarget = div.parentNode;
     //divタグ以下を初期化
     addTarget.textContent = null;
-
     div.textContent = null;
     //押された削除ボタンの親タグ(li)を未完了リストから削除
     deleteFromIncompleteList(addTarget);
-
-    //pタグ作成
-    const param = document.createElement("p");
-    //TODO内容テキストを取得
-    const text = p.textContent;
-    param.innerText = text;
-
-    createIncompleteList(text);
 
     //button（戻す）タブの生成
     const backButton = document.createElement("button");
@@ -74,6 +65,7 @@ const createIncompleteList = (text) => {
   const deleteButton = document.createElement("button");
   deleteButton.innerText = "削除";
   deleteButton.addEventListener("click", () => {
+    console.log(div.parentNode)
     //押された削除ボタンの親タグ(li)を未完了リストから削除
     deleteFromIncompleteList(div.parentNode);
   });
